@@ -5,11 +5,13 @@ const rl = readline.createInterface({
     output: process.stdout
   });
 
-//rl.on()은 비동기적으로 입력을 처리함 주의!!
-//->hour과 min을 함수 밖에서 선언
-//hour과 min에 값이 저장되는 함수와 time에 값이 저장되는 함수 개별 -> 서로 다른 함수에서..
-//따라서, var함수의 스코프 범위 밖이라고 할 수 
+/*rl.on()은 비동기적으로 입력을 처리함 주의!!
+->hour과 min을 함수 밖에서 선언
+hour과 min에 값이 저장되는 함수와 time에 값이 저장되는 함수 개별 -> 서로 다른 함수에서..
+따라서, var함수의 스코프 범위 밖이라고 할 수 
+*/
 let hour, min;
+
 rl.on("line",(input)=>{
   if(input.includes(' ')){
     let tmp = input.split(" ");
