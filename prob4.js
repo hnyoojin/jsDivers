@@ -1,7 +1,23 @@
-const input=prompt('A(A>0), B(B<10)를 입력하세요');
-let inputArray=input.split(" ");
+const fs=require('fs');
 
-const A=parseInt(inputArray[0]);
-const B=parseInt(inputArray[1]);
-
-console.log(A*B);
+fs.readFile("prob4.txt",'utf8',(err,data)=>{
+    if(err){
+        console.error('파일을 읽는 중 에러가 발생했습니다.',err);
+        return;
+    }
+    else{
+        const input=data.split('\n');
+        const x=parseInt(input[0]);
+        const y=parseInt(input[1]);
+        if(x>0&&y>0)
+            console.log(1);
+        else if(x<0&&y>0)
+            console.log(2);
+        else if(x<0&&y<0)
+            console.log(3);
+        else if(x>0&&y<0)
+            console.log(4);
+        else
+            console.log('사분면에 속해있지 않습니다.');
+    }
+})

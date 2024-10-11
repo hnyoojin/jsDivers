@@ -1,7 +1,20 @@
-const input=prompt('A(A>0), B(B<10)를 입력하세요');
-let inputArray=input.split(" ");
+const fs=require('fs');
 
-const A=parseInt(inputArray[0])*1.0;
-const B=parseInt(inputArray[1])*1.0;
-
-console.log(A/B);
+fs.readFile("prob5.txt",'utf8',(err,data)=>{
+    if(err){
+        console.error('파일을 읽는 중 에러가 발생했습니다.',err);
+        return;
+    }
+    else{
+        const input=data.split(' ');
+        const hour=parseInt(input[0]);
+        const min=parseInt(input[1]);
+        if(min>=45){
+            console.log(`${hour} ${min-45}`);
+        }
+        else if(hour>=1&&min<45)
+            console.log(`${hour-1} ${min+60-45}`);
+        else
+            console.log(`${24+hour-1} ${min+60-45}`);
+    }
+})
