@@ -22,3 +22,6 @@ const gugudan = (N) => {
         console.log(N, "*", i, "=", N * i);
     }
 }
+
+
+
