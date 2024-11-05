@@ -15,7 +15,7 @@ function sum(number){
 //재귀함수 버전으로도 만들어봤어요
 function sumRecursion(number){
     if(number<=0) return 0;
-    //아래 문장에서 number이 문자열로 취급되어 예측과 다른 결과 반환
+  //parseInt로 인수를 받지 않으면 아래 문장에서 number이 문자열로 취급되어 예측과 다른 결과 반환
     return number+sumRecursion(number-1);
 };
 
