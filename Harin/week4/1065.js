@@ -12,7 +12,7 @@ rl.question('1000보다 작거나 같은 자연수 N을 입력하세요.\n',(N)=
     const value=i.toString();
     const dis=value[1]-value[0];
     for(let j=1;j<value.length-1;j++){
-        if((value[i+1]-value[i])===dis)
+        if((value[j+1]-value[j])===dis)
             continue;
         else{
             isItHansu=0;
