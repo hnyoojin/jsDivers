@@ -80,7 +80,6 @@ const toggleNum = (num) => {
 }
 const allNum = () => {
     result.sort((a, b) => a - b);
-    console.log(result);
 }
 const emptyNum = () => {
     result = []; // 빈 배열 만들려면 splice 쓰지말고 그냥 [] 이거 하기
