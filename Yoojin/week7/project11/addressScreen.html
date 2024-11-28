@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td {
+            border: solid black 1px;
+        }
+        tr { cursor: pointer; }
+        tr:hover { background-color: #fff;}
+    </style>
+</head>
+<body>
+    <table style="border: solid black 1px;">
+        <tr>
+            <th>Post Address</th>
+            <th>Address</th>
+        </tr>
+        <tr onclick="selectAddress('48516','부산광역시 분포로 111')">
+            <td>48516</td>
+            <td>부산광역시 분포로 111</td>
+        </tr>
+        <tr onclick="selectAddress('12345','여기가어딘지몰라요')">
+            <td>12345</td>
+            <td>여기어딘지몰라요</td>
+        </tr>
+    </table>
+    <script>
+        const selectAddress = (postCode, address) => {
+            // window.opener : 팝업 창에서, 부모 창을 참조할 수 있게 해주는 객체
+            // 부모 - 자식 간 데이터 교환 가능
+            if (window.opener && !window.opener.closed) {
+                window.opener.setAddress(postCode, address);
+                window.close();
+            }
+            else { alert ('no parent window'); }
+        }
+    </script>
+</body>
+</html>
