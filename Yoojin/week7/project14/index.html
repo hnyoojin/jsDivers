@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 14</title>
+    <style>
+    </style>
+</head>
+<body>
+    <input id="input">
+    <div id="output"></div>
+
+    <script>
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+
+        input.addEventListener('keyup', (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const value = input.value;
+                if (value) {
+                    getOutput(value);
+                    input.value = "";
+                }
+            }
+        });
+
+        const getOutput = (value) => {
+            output.innerHTML = "";
+            for (let i = 1; i <= value.length; i++) {
+                const substring = value.substring(0, i);
+                const div = document.createElement('div');
+                div.textContent = substring;
+                output.appendChild(div);
+            }
+        };
+    </script>
+</body>
+</html>
