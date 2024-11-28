@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>주소 목록</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>우편번호</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="javascript:post('12345','부산시 우유롤에 딸기쨈')">12345</a></td>
+                <td>부산시 우유롤에 딸기쨈</td>
+            </tr>
+            <tr>
+                <td><a href="javascript:post('67891','부산시 엔요 요구르트')">67891</a></td>
+                <td>부산시 엔요 요구르트</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function post(zipCode, address) {
+            if (window.opener) {
+                window.opener.document.getElementById('post').value = zipCode;
+                window.opener.document.getElementById('address').value = address;
+
+                window.close();
+            }
+        }
+    </script>
+</body>
+</html>
