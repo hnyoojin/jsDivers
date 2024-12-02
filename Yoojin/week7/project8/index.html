@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Login Form</title>
+</head>
+<body>
+    <form id="loginForm">
+        <input type="text" id="userId" placeholder="ID"><br>
+        <input type="password" id="userPasswd" placeholder="Password"><br>
+        <button type="submit">Login</button>
+    </form>
+    <script>
+        const loginForm = document.getElementById("loginForm");
+
+        loginForm.addEventListener('submit', (event) => {
+            // prevenrDefault 사용
+            event.preventDefault();
+            // 원래는 서버로 폼 제출 후 새로고침됨.
+            // 그런데 우리는 유효성 검사 후에 제출해야함.
+            // preventDefault로 기본 동작인 새로고침을 막고, 유효성 검사 부분 추가
+            const id = document.getElementById("userId").value;
+            const password = document.getElementById("userPasswd").value;
+
+            if (!id || !password) {
+                alert("Please enter both your ID and Password.");
+                return;
+            }
+
+            // Simulate successful login or proceed with actual login logic
+            alert(`Welcome, ${id}!`);
+        });
+    </script>
+</body>
+</html>
