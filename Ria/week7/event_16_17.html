@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="textInput">
+        <button id="addButton">추가</button>
+    </form>
+    <ul id="textList">
+        <!--li, button, textNode 추가 => createElement, createTextNode 사용-->
+    </ul>
+
+    <script>
+        const addButton = document.getElementById('addButton');
+        const textInput = document.getElementById('textInput');
+        const textList = document.getElementById('textList');
+
+        addButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const textValue = textInput.value;
+            const listItem = document.createElement('li');
+            const textNode = document.createTextNode(textValue); // textValue로 텍스트노드 만들기
+            const x_Button = document.createElement('button');
+            
+            x_Button.textContent = 'x'; // value: 속성 값 <-> textContent: 시각적표시
+            x_Button.addEventListener('click', () => {
+                textList.removeChild(listItem); // 자식노드 제거: removeChild
+            });
+
+            listItem.appendChild(textNode);
+            listItem.appendChild(x_Button);
+            // textNode + x_button -> 하나의 listItem => textList(<ul>)에 append
+            textList.appendChild(listItem);
+
+            textInput.value = ''; // 초기화
+            textInput.focus(); 
+        });
+    </script>
+</body>
+
+</html>

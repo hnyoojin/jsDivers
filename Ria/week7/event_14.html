@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const textInput = document.getElementById("textInput");
+            const textPrint = document.getElementById("textPrint");
+
+            textInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    const inputValue = textInput.value;
+                    if (inputValue != 0) {
+                        const textLine = document.createElement("div");
+                        textLine.textContent = inputValue;
+                        textPrint.appendChild(newLine);
+                        textInput.value = "";
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <div>
+            <label>값:</label>
+            <input type="text" id="textInput">
+        </div>
+        <div id="textPrint">
+
+        </div>
+    </form>
+</body>
+
+</html>
